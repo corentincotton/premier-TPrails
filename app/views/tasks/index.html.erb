@@ -1,0 +1,19 @@
+ <%= link_to t('.new', :default => t("helpers.links.new")), new_task_path, :class => 'btn btn-primary' %>
+
+<%= render 'tasks/tasks',
+  title:       'Délai dépassé', 
+  tasks:       @tasks_delay_depassed %>
+
+<%= render 'tasks/tasks', title: 'En cours', tasks: @tasks_current %>
+
+<%= content_for :sidebar do %>
+<li>
+  <%=content_tag 'span', 'en retard'.upcase, class: 'text-warning'%> :
+  <%=content_tag 'span',  @tasks_delay_depassed.count, class: 'badge'%>
+</li>
+
+<li>
+     <%=content_tag 'span', 'à réaliser'.upcase, class: 'text-success'%>  :
+     <%=content_tag 'span',   @tasks_current.count, class: 'badge'%>
+</li>
+<% end %> -->
